@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+html, body, .container {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.nav {
+  background-color: #efefef;
+  height: 50px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 10px #000;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: top 0.15s ease-out, border-radius 0.15s ease-out;
+}
+
+.nav.active {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  border-radius: 8px 5px;
+}
+
+.nav > ul {
+  width: 100%;
+  padding: 0 20px;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+.nav > ul > li {
+  float: left;
+  display: inline-block;
+}
+
+.nav > ul > li > a {
+  color: #222;
+  font-family: Montserrat, sans-serif;
+  text-decoration: none;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  display: block;
+  text-shadow: 0 -1px #fff;
+  transition: background 0.15s ease;
+}
+
+.nav > ul > li > a:hover {
+  background-color: #dfdfdf;
+}
+
+.nav.active > ul > li > a:hover {
+  background-color: rgba(180, 180, 180, 0.7);
+}
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg > div {
+  color: white;
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  width: 100%;
+  padding: 30px;
+  text-shadow: 0 -1px #222;
+}
+
+#welcome {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/welcome.jpg);
+}
+
+#login {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/login.jpg);
+}
+
+#register {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/register.jpg);
+}
+
+#about {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/about.jpg);
+}
+
+#contact {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/contact.jpg);
+}
+
+.btn {
+  display: inline-block;
+  letter-spacing: 2px;
+  padding: 1rem 2rem;
+  margin-top: 30px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.btn-outline {
+  transition: color 0.3s;
+}
+
+.btn-outline.color {
+  margin-left: 1rem;
+  box-shadow: inset 0 0 0 2px #000;
+}
+
+/* When animating the lines simply move in a certain direction, so we need to make sure that they are hidden when outside of the button. This way we will get our realistic animating border effect. */
+.btn-outline {
+  overflow: hidden;
+  position: relative;
+}
+/* Left & Right Lines Container */
+.btn-outline .lines {
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+/* All Lines */
+.btn-outline:before,
+.btn-outline:after,
+.btn-outline .lines:before,
+.btn-outline .lines:after{
+  background-color: #fff;
+  content: "";
+  position: absolute;
+  transition: transform 0.3s;
+}
+/* Top & Bottom Lines */
+.btn-outline:before,
+.btn-outline:after {
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+/* Top Line */
+.btn-outline:after {
+  bottom: auto;
+  top: 0;
+}
+.btn-outline.draw:after {
+  transition-delay: 0.6s;
+}
+/* Bottom Line */
+.btn-outline:before {
+  bottom: 0;
+  top: auto;
+}
+.btn-outline.draw:before {
+  transition-delay: 0.2s;
+}
+/* Left & Right Lines */
+.btn-outline .lines:before,
+.btn-outline .lines:after {
+  top: 0;
+  height: 100%;
+  width: 2px;
+}
+/* Left Line */
+.btn-outline .lines:before {
+  left: 0;
+  right: auto;
+}
+/* Right Line */
+.btn-outline .lines:after {
+  left: auto;
+  right: 0;
+}
+.btn-outline.draw .lines:after {
+  transition-delay: 0.4s;
+}
+/***************
+ * Hover State *
+ ***************/
+/* Text */
+.btn-outline:hover {
+  color: #000;
+}
+/* Top */
+.btn-outline:hover:after {
+  transform: translateX(100%);
+}
+.btn-outline.draw:hover:after {
+  transition-delay: 0s;
+}
+/* Bottom */
+.btn-outline:hover:before {
+  transform: translateX(-100%);
+}
+.btn-outline.draw:hover:before {
+  transform: translateX(-100%);
+  transition-delay: 0.4s;
+}
+/* Left */
+.btn-outline:hover .lines:before {
+  transform: translateY(-100%);
+}
+.btn-outline.center:hover .lines:before {
+  transform: translateY(100%);
+}
+.btn-outline.draw:hover .lines:before {
+  transform: translateY(-100%);
+  transition-delay: 0.6s;
+}
+
+#go-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background-color: #ccc;
+  padding: 10px;
+  text-decoration: none;
+  font-weight:bold;
+  color:#505458;
+}
+
+#go-to-top:hover{
+  color:#222;
+}
+
+
+
+#contact.container {
+	max-width:400px;
+	width:100%;
+	margin:0 auto;
+	position:relative;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] 
+{ font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:30%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:31.5%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}

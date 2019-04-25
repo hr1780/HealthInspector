@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="LoginStyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="testbox">
+  <h1>Login</h1>
+
+  <form action="./LoginServlet" method="post">
+  <hr>
+  <label id="icon" for="userid"><i class="fas fa-id-card"></i></label>
+  <input type="text" name="userid" id="userid" placeholder="User Id" required/>
+  <label id="icon" for="password"><i class="fa fa-user-secret"></i></label>
+  <input type="password" name="password" id="password" placeholder="Password" required/>
+  <input type = "submit" value = "Login"/>
+  <a href="registerForm.html" class="button">New User | Register</a>
+  </form>
+</div>
+</body>
+</html>
